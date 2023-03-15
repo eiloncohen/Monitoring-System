@@ -1,11 +1,27 @@
 import styles from './MealItemForm.module.css'
+import { useContext, useRef } from 'react';
+import TimerContext from '../../store/timer-content';
 
 
 const ErrorItemForm = props => {
+    const timerCtx = useContext(TimerContext);
+
+    const numberOfTimers = timerCtx.timers.reduce((curNumber, timer) => {
+        return curNumber + 1
+    }, 0);
+
+    console.log(numberOfTimers)
+
     const onClickHandler = (event) => {
         event.preventDefault();
         props.deleteError(props.id)
-        props.addErrorHandler(props.name, props.description,props.time)
+        timerCtx.addTimer({
+            id: props.id,
+            name: props.name,
+            description: props.description,
+            time: props.seconds,
+        })
+        props.addErrorHandler(props.name, props.description,props.seconds, props.id)
     }
     const onMinusClickHandler = (event) => {
         if (props.sectionId === 2){

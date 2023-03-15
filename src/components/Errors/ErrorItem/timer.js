@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../../UI/Button'
+import { get_is_active } from '../../Utils/utils';
 
-const Timer = () => {
-  const [seconds, setSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-
+const Timer = (props) => {
+  const [seconds, setSeconds] = useState(props.sec);
+  const [isActive, setIsActive] = useState(get_is_active(props.id));
   useEffect(() => {
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {
         setSeconds(seconds => seconds + 1);
+        let timerDataStorage={
+          sec: seconds, 
+          isActive: isActive
+        }
+        localStorage.setItem(props.id, JSON.stringify(timerDataStorage));
+        console.log()
       }, 1000);
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
@@ -41,18 +47,7 @@ const Timer = () => {
   return (
     <>
     <div className="timer">
-      <h2>Timer: {formatTime(hours)}:{formatTime(minutes)}:{formatTime(remainingSeconds)}</h2>
-      <div className="buttons">
-        {!isActive ? (
-            <Button whatToDo={handleStart} action={"Start"}></Button>
-        //   <button onClick={handleStart}>Start</button>
-        ) : (
-            <Button whatToDo={handleStop} action={"Stop"}></Button>
-        //   <button onClick={handleStop}>Stop</button>
-        )}
-        <Button whatToDo={handleReset} action={"Reset"}></Button>
-        {/* <button onClick={handleReset}>Reset</button> */}
-      </div>
+      <h2>Timer: {formatTime(hours)}:{formatTime(minutes)}:{formatTime(remainingSeconds)} {}</h2>
     </div>
     </>
   );

@@ -11,7 +11,7 @@ const ErrorItem = props => {
         </div>
         <div>
             <ErrorItemForm id={props.id} name={props.name} description={props.description} time={props.time} 
-            addErrorHandler={props.addErrorHandler} deleteError={props.deleteError} addDetectedError={props.addDetectedError} sectionId={props.sectionId}/>
+            addErrorHandler={props.addErrorHandler} deleteError={props.deleteError} addDetectedError={props.addDetectedError} sectionId={props.sectionId} seconds={props.seconds}/>
         </div>
     </li>
 }

@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import Detect from "./components/Layout/Detect";
 import Header from "./components/Layout/Header";
-import Timer from "./components/Errors/ErrorItem/timer";
 // import { DUMMY_ERRORS } from "./components/Errors/AvilableErrors";
 function App() 
 {
@@ -10,26 +9,25 @@ function App()
       id: 'm1',
       name: 'CH1_RAFTOR_56',
       description: 'Ping Down',
-      time: '20:00:00',
-      state: 1
+      time: 5,
     },
     {
       id: 'm2',
       name: 'CH1_RAFTOR_78',
       description: 'link not in dispatch',
-      time: '20:00:00',
+      time: 5,
     },
     {
       id: 'm3',
       name: 'CH1_RAFTOR_34',
       description: 'Link GPS Out Of Sync',
-      time: '20:00:00',
+      time: 5,
     },
     {
       id: 'm4',
       name: 'CH2_RAFTOR_34',
       description: 'NLM Link Is Down',
-      time: '20:00:00',
+      time: 5,
     },
    ]);
   const [errorListInTreatment, setErrorsList] = useState([]);
@@ -49,11 +47,11 @@ const deleteFromDectedErrorHandler = errorId => {
 };
 
 
-const addToTreatmentListErrorHandler = (errorName, errorDescription, errorTime) => {
+const addToTreatmentListErrorHandler = (errorName, errorDescription, errorTime, errorid) => {
+  console.log(errorListInTreatment)
     setErrorsList((prevUsersList) => {
-      return [...prevUsersList, {name: errorName, description: errorDescription, time: errorTime ,id: Math.random().toString()}];
+      return [...prevUsersList, {name: errorName, description: errorDescription, time: errorTime ,id: errorid}];
     })
-    console.log(errorListInTreatment)
 }
 
 const deleteFromTreatmentErrorHandler = errorId => {
@@ -61,9 +59,9 @@ const deleteFromTreatmentErrorHandler = errorId => {
   console.log(errorListInTreatment)
 };
 
-const addErrorFinishHandler = (errorName, errorDescription, errorTime) => {
+const addErrorFinishHandler = (errorName, errorDescription, errorTime, id) => {
   setErrorsFinishedList((prevUsersList) => {
-      return [...prevUsersList, {name: errorName, description: errorDescription, time: errorTime ,id: Math.random().toString()}];
+      return [...prevUsersList, {name: errorName, description: errorDescription, time: errorTime ,errorid: id}];
     })
 }
 
