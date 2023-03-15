@@ -1,0 +1,74 @@
+.detect {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #E9A178;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+  }
+
+.work {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #F7C04A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+}
+
+.solved {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #609966;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+}
+  
+  /* Media query to adjust font size on smaller screens */
+@media screen and (max-width: 5000px) {
+    .detect {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        z-index: 10;
+    }
+  }
+  
+
+  .errors {
+    max-width: 60rem;
+    width: 90%;
+    margin: 2rem auto;
+    animation: meals-appear 1s ease-out forwards;
+  }
+  
+  .errors ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  @keyframes meals-appear {
+    from {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
