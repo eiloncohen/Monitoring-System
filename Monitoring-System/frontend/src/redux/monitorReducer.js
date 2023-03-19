@@ -6,6 +6,8 @@ const monitorSlice = createSlice({
     detect: [],
     work: [],
     solved: [],
+    totalTimeOfDetect: 0,
+    totalTimeOfTreatment: 0,
   },
   reducers: {
     addDetect: (state, action) => {
